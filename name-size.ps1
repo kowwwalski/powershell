@@ -1,0 +1,1 @@
+get-childitem * -exclude *.tmp, *.temp|select-object name, length

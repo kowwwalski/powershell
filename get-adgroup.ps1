@@ -1,0 +1,1 @@
+get-adgroupmember -identity "%groupname%"|select name, samaccountname
