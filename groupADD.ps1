@@ -1,4 +1,4 @@
-﻿#Create csv-file with user credentials(FIO) & get samaccount
+﻿#Create csv-file with user credentials(FIO) & get samaccount (insert "name" in 1st row)
 import-csv -path %credenlist%.csv
 ForEach-Object{get-adobject -filter "name -like '*$($_.name)*'" -properties *}
 Select-Object samaccountname|export-csv %output%.csv
