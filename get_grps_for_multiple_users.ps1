@@ -1,4 +1,4 @@
-$userlist = Get-Content 'C:\Users\mchinenkov\Desktop\logins.txt'
+$userlist = Get-Content 'list.txt'
 
 
 Get-ADUser -Filter '*' -Properties memberof | Where-Object {
@@ -15,4 +15,4 @@ Get-ADUser -Filter '*' -Properties memberof | Where-Object {
  
 	"{0}; {1}" -f $username, ($groups -join '; ')
 
-} | Out-File 'C:\Users\mchinenkov\Desktop\ss.csv'
+} | Out-File 'output.csv'
