@@ -1,1 +1,0 @@
-get-wmiobject win32_operatingsystem -computer $compname | select-object OSArchitecture
