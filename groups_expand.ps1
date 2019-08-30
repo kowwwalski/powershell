@@ -20,9 +20,8 @@ function Get-ADPrincipalGroupMembershipRecursive( ) {
     return $groups
 }
 
-# Simple Example of how to use the function
 $username = Read-Host -Prompt "Enter a username"
-$groups   = Get-ADPrincipalGroupMembershipRecursive (Get-ADUser $username).DistinguishedName
+$groups = Get-ADPrincipalGroupMembershipRecursive (Get-ADUser $username).DistinguishedName
 #$groups | Sort-Object -Property name | Format-Table
 $groups | Select-Object name
 #| Measure-Object
