@@ -1,3 +1,4 @@
+# I am running this one via external .bat with powershell.exe -ExecutionPolicy Bypass -file "%~dp0\path\to\this-file.ps1"
 #set variables
 $printer_name = #set desired printer display name
 $printer_ip = #define printer ip-address
@@ -6,9 +7,9 @@ $driver_name = #set driver name like in driver .INF file
 $location = #set desired location (for properties menu)
 #
 #check driver in current system
-#here I use external driver installation, cause of adm escalation:
+# here I use external driver installation, cause of adm escalation:
 # cscript "%windir%\System32\Printing_Admin_Scripts\en-US\prndrvr.vbs" -a -m "Canon Generic Plus UFR II" -i "%~dp0\path\to\CNLB0MA64.INF" #set your path to driver
-#it's runnig from root dir
+# it's runnig from root dir
 $drvscript = "$PSScriptRoot\add_driver.bat"
 $drvcheck = Get-PrinterDriver -Name $driver_name -ErrorAction SilentlyContinue
 if (-not $drvcheck) {
@@ -43,7 +44,7 @@ else {
 }
 sleep 2
 
-#and finally, ask about setting printer as default
+# and finally, ask about setting printer as default
 #set as default
 $default = Read-Host "Set $printer_name as default? (y/n)"
 if ($default -eq 'y') {
