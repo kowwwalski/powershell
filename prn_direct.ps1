@@ -47,13 +47,7 @@ sleep 2
 # and finally, ask about setting printer as default
 #set as default
 $default = Read-Host "Set $printer_name as default? (y/n)"
-if ($default -eq 'y') {
-    $printers = Get-WmiObject -ClassName win32_printer
-    ($printers | Where-Object -FilterScript {$_.name -eq $printer_name}).setdefaultprinter() | Out-Null
-    sleep 1
-    Write-Host "Printer $printer_name set as default!"
-}
-elseif ($defaul -eq 'Y') {
+if ($default -eq 'y' -or $default -eq 'Y') {
     $printers = Get-WmiObject -ClassName win32_printer
     ($printers | Where-Object -FilterScript {$_.name -eq $printer_name}).setdefaultprinter() | Out-Null
     sleep 1
