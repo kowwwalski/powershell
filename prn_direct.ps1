@@ -15,7 +15,7 @@ $drvcheck = Get-PrinterDriver -Name $driver_name -ErrorAction SilentlyContinue
 if (-not $drvcheck) {
     Write-Host "Driver not found, installation..."
     Start-Process $drvscript -Verb runas
-    sleep 30
+    sleep 30 # it's a bad workaround to wait for driver installation complete, sorry
 }
 else {
     Write-Host "Driver found in system. Next step in progress..."
