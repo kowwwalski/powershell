@@ -21,13 +21,9 @@ else {
 #
 # and here's reboot required after this operation, but ask interactively
 $reboot = Read-Host "Reboot now? (y/n)"
-if ($reboot -eq 'y') {
+if ($reboot -eq 'y' -or $reboot -eq 'Y') {
     Write-Host "PC will be rebooted in 5 sec"
     Restart-Computer -Timeout 5
-}
-elseif ($reboot -eq 'Y') {
-    Write-Host "PC will be rebooted in 5 sec"
-    Restart-Computer -TimeOut 5
 }
 else {
     Write-Host "Reboot PC manually"
